@@ -42,7 +42,8 @@
 }
 
 .draggable {
-  background-image: url('https://source.unsplash.com/user/erondu/');
+  /* background-image: url('https://source.unsplash.com/user/erondu/'); */
+  background-color: salmon;
   position: relative;
   height: 150px;
   width: 150px;
