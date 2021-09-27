@@ -41,7 +41,7 @@
   grid-column: 1 / span 3;
 }
 
-.fill {
+.draggable {
   background-image: url('https://source.unsplash.com/user/erondu/');
   position: relative;
   height: 150px;
