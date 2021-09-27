@@ -12,7 +12,8 @@ draggables.forEach((draggable) => {
 });
 
 categories.forEach((category) => {
-  category.addEventListener('dragover', () => {
+  category.addEventListener('dragover', (e) => {
+    e.preventDefault;
     const draggble = document.querySelector('.dragging');
     category.appendChild(draggble);
   });
