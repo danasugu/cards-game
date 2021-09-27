@@ -53,6 +53,5 @@
 }
 
 .draggable.dragging {
-  background-color: aqua;
-  /* opacity: 0.5; */
+  opacity: 0.5;
 }
