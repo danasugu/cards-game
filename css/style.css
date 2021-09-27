@@ -53,5 +53,6 @@
 }
 
 .draggable.dragging {
+  background-color: cyan;
   opacity: 0.5;
 }

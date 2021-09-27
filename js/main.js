@@ -1,5 +1,5 @@
 const draggables = document.querySelectorAll('draggable');
-const abilities = document.querySelectorAll('.ability');
+const categories = document.querySelectorAll('.category');
 
 draggables.forEach((draggable) => {
   draggable.addEventListener('dragstart', () => {
@@ -8,5 +8,12 @@ draggables.forEach((draggable) => {
 
   draggable.addEventListener('dragend', () => {
     draggable.classList.remove('dragging');
+  });
+});
+
+categories.forEach((category) => {
+  category.addEventListener('dragover', () => {
+    const draggble = document.querySelector('.dragging');
+    category.appendChild(draggble);
   });
 });
