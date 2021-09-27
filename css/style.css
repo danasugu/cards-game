@@ -40,3 +40,12 @@
 .carduri-jucate {
   grid-column: 1 / span 3;
 }
+.fill {
+  background-image: url('https://source.unsplash.com/user/erondu/');
+  position: relative;
+  height: 150px;
+  width: 150px;
+  top: 5px;
+  left: 5px;
+  cursor: pointer;
+}
