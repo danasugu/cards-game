@@ -64,7 +64,7 @@ a {
   text-decoration: none;
 }
 .btn {
-  background-color: #4caf50; /* Green */
+  background-color: dimgray;
   border: none;
   color: white;
   padding: 10px 20px;
@@ -76,7 +76,7 @@ a {
   font-size: 16px;
 }
 .btn:hover {
-  background-color: rgb(173, 1, 58);
+  background-color: #4caf50;
   padding: 10px 20px;
   width: 150px;
   height: 20px;
