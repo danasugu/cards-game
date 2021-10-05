@@ -64,15 +64,21 @@ a {
   text-decoration: none;
 }
 .btn {
-  background-color: rgb(21, 173, 1);
-  padding: 10px 30px;
-  width: 250px;
-  height: 50px;
+  background-color: #4caf50; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  width: 150px;
+  height: 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
 }
 .btn:hover {
   background-color: rgb(173, 1, 58);
-  padding: 10px 30px;
-  width: 250px;
-  height: 50px;
+  padding: 10px 20px;
+  width: 150px;
+  height: 30px;
   color: #fff;
 }
