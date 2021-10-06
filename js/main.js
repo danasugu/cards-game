@@ -42,13 +42,4 @@ function getDragAfterElement(container, y) {
     { offset: Number.NEGATIVE_INFINITY }
   ).element;
 }
-function doGet() {
-  const xhttp = new XMLHttpRequest();
-  xhttp.onload = function () {
-    var baseurl = document.getElementById('base_url').selectedIndex[0].value;
-    var context = document.getElementById('get_dd').value;
-    var get_url = baseurl + context;
-  };
-  xhttp.open('GET', get_url);
-  xhttp.send();
-}
+

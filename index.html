@@ -82,5 +82,19 @@
     </div>
     <script src="js/main.js"></script>
 </body>
+<script>
+  function doGet() {
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = function () {
+      var ebu = document.getElementById("base_url");
+      var base_url = ebu.options[ebu.selectedIndex].value;
+      var ec = document.getElementById("get_dd");
+      var context = ec.options[ec.selectedIndex].value;
+      var get_url = baseurl + context;
+    }
+    xhttp.open("GET", get_url);
+    xhttp.send();
+  }
+</script>
 
 </html>
