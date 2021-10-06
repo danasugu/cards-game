@@ -99,8 +99,8 @@ a {
   background-color: rgb(243, 243, 243);
   height: 90px;
   top: 30px;
-  text-align: right;
-  padding: 30px 50px;
+  text-align: center;
+  padding: 20px 50px;
 }
 #base_url {
   font-size: 20px;
