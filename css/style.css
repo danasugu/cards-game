@@ -1,3 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .main {
   width: 1800px;
   height: 900px;
@@ -68,7 +74,7 @@ a {
   border: none;
   color: white;
   padding: 10px 20px;
-  width: 150px;       
+  width: 150px;
   height: 20px;
   text-align: center;
   text-decoration: none;
@@ -81,4 +87,9 @@ a {
   width: 150px;
   height: 20px;
   color: #fff;
+}
+
+.get-row {
+  display: flex;
+  gap: 20px;
 }
