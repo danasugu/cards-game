@@ -43,3 +43,45 @@ function getDragAfterElement(container, y) {
   ).element;
 }
 
+// function doGet() {
+//   var ebu = document.getElementById("base_url");
+//   var base_url = ebu.options[ebu.selectedIndex].value;
+//   var ec = document.getElementById("get_dd");
+//   var context = ec.options[ec.selectedIndex].value;
+//   var result_area = document.getElementById("text_area"); 
+//   var get_url = base_url + context;
+//   result_area.value = get_url;
+  
+// let xhr = new XMLHttpRequest();
+// xhr.responseType = 'json';
+
+// xhr.open('GET', get_url);
+// xhr.setRequestHeader('Content-Type', 'application/json');
+// xhr.send();
+// console.log("Request sent");
+
+// // 4. This will be called after the response is received
+// xhr.onload = function() {
+//   if (xhr.status != 200) {
+//     console.log(`Error ${xhr.status}: ${xhr.statusText}`); // e.g. 404: Not Found
+//   } else { // show the result
+//     console.log(`Done, got ${xhr.response.length} bytes`); // response is the server response
+//     var resp=xhr.response;
+//     result_area.value = resp;
+//   }
+// };
+
+// xhr.onprogress = function(event) {
+//   if (event.lengthComputable) {
+//     console.log(`Received ${event.loaded} of ${event.total} bytes`);
+//   } else {
+//     console.log(`Received ${event.loaded} bytes`); // no Content-Length
+//   }
+
+// };
+
+// xhr.onerror = function() {
+//   console.log(`Request failed: ${xhr.status}`);
+// };
+
+// } //end

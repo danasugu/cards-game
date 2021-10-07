@@ -42,59 +42,70 @@
     </div>
     <div class="col-2">games</div>
     <div class="col-3">
-      <div class="post-main">
-        <strong>POST</strong>
-        <br>
-        <textarea id="w3review" name="w3review" rows="4" cols="50"></textarea>
-        <select name="post" id="post">
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-        </select>
-        <br><br>
-        <input type="submit" value="post">
-      </div>
+      Site:
+      <select name="Base URL" id="base_url">
+        <option value="http://eusurvey-dev.escoaladevalori.ro:6060" selected>DEV</option>
+      </select>
 
+      <hr>
 
+      <textarea name="text" id="post_area" rows="20" cols="60"></textarea>
+      <br>
+      <select name="Post" id="post_dd">
+        <optgroup label="Game Admin">
+          <option value="/v1/api/user/add">AddUser</option>
+          <option value="/v1/api/game/create">CreateGame</option>
+          <option value="/v1/api/game/start">StartGame</option>
+          <option value="/v1/api/table/create">CreateTable</option>
+        </optgroup>
+        <optgroup label="Game Play">
+          <option value="/v1/api/table/card/draw/">PlayCard</option>
+        </optgroup>
+      </select>
+      <button onclick="doPost()">POST Request</button>
+      <br>
+      <br>
 
-      <div class="get-main">
-        <h1>GET</h1>
-        <br>
-        <div class="get-row">
-
-          <select name="get" id="get">
-            <option value="/v1/api/adm/artifact/getAll">GetAllArtifacts</option>
-            <option value="/v1/api/adm/artifact/get/{id}">GetArtifact</option>
-            <option value="/v1/api/adm/language/get/{id}">GetLanguage</option>
-            <option value="/v1/api/adm/language/getAll">GetAllLanguages</option>
-          </select>
-          <input type="name">
-        </div>
-
-        <!-- <input type="submit" value="GET"> -->
-        <button type="button" onclick="doGet()">GET</button>
-        <br><br>
-        <textarea id="w3review" name="w3review" rows="4" cols="50"></textarea>
-      </div>
-      <br><br>
-
+      <select name="Get" id="get_dd">
+        <optgroup label="Admin Functions">
+          <option value="/v1/api/adm/artifact/getAll">GetAllArtifacts</option>
+          <option value="/v1/api/adm/artifact/get/{id}">GetArtifact</option>
+          <option value="/v1/api/adm/language/get/{id}">GetLanguage</option>
+          <option value="/v1/api/adm/language/getAll">GetAllLanguages</option>
+          <option value="/v1/api/adm/localization/get/{id}">GetLocalization</option>
+          <option value="/v1/api/adm/localization/get/{lang}/{id}">GetArtifactLangLocalization</option>
+          <option value="/v1/api/adm/localization/getAll">GetAllLocalizations</option>
+          <option value="/v1/api/adm/localization/getAll/{id}">GetAllArtifactLangLocalization</option>
+        </optgroup>
+        <optgroup label="Card Functions">
+          <option value="/v1/api/card/get/{id}">GetCard</option>
+          <option value="/v1/api/card/getAll">GetAllCards</option>
+          <option value="/v1/api/card/getAllIds">GetAllCardsIds</option>
+        </optgroup>
+        <optgroup label="Game Functions">
+          <option value="/v1/api/game/available">GetAvailableGames</option>
+          <option value="/v1/api/game/get/{id}">GetGame</option>
+          <option value="/v1/api/game/getAll">GetAllGames</option>
+          <option value="/v1/api/game/state/getAll">GetGameStates</option>
+        </optgroup>
+        <optgroup label="Play Game">
+          <option value="/v1/api/table/card/draw/{tableId}/{packId}">DrawCard</option>
+        </optgroup>
+        <optgroup label="Table Services">
+          <option value="/v1/api/table/getAll">GetAllTables</option>
+        </optgroup>
+        <optgroup label="Table User Services">
+          <option value="/v1/api/table/user/{userId}/state/{tableId}">GetUserTableState</option>
+        </optgroup>
+      </select>
+      <input type="text" maxlength=32></input>
+      <button onclick="doGet()">GET Request</button>
+      <br>
+      <textarea name="text" id="response_area" rows="20" cols="60"></textarea>
+      <br>
     </div>
     <script src="js/main.js"></script>
+    <script src="js/script.js"></script>
 </body>
-<script>
-  function doGet() {
-    const xhttp = new XMLHttpRequest();
-    xhttp.onload = function () {
-      var ebu = document.getElementById("base_url");
-      var base_url = ebu.options[ebu.selectedIndex].value;
-      var ec = document.getElementById("get_dd");
-      var context = ec.options[ec.selectedIndex].value;
-      var get_url = baseurl + context;
-    }
-    xhttp.open("GET", get_url);
-    xhttp.send();
-  }
-</script>
 
 </html>

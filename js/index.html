@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Card Games</title>
+</head>
+
+<body>
+  <div class="base">
+    <h2>Base_url</h2>
+    <select name="base_url" id="base_url">
+      <option value="http://eusurvey-dev.escoaladevalori.ro:6060">http://eusurvey-dev.escoaladevalori.ro:6060 </option>
+    </select>
+  </div>
+  <div class="main">
+
+    <div class="col-1">
+      <div class="container house-table">
+        <div class=category">abilitati
+          <div class="draggable" draggable="true"></div>
+        </div>
+        <div class="category" draggable="true">pasiuni
+          <div class="draggable" draggable="true"></div>
+        </div>
+        <div class="category" draggable="true">profesii
+          <div class="draggable" draggable="true"></div>
+        </div>
+        <div class="category" draggable="true">provocare
+          <div class="draggable" draggable="true"></div>
+        </div>
+      </div>
+      <div class=" player-table">
+        <div class="container portofoliu-personal" draggable="true">portofoliu-personal</div>
+        <div class="container carduri-active" draggable="true">carduri-active</div>
+        <div class="container carduri-provocate" draggable="true">carduri-provocate</div>
+        <div class="container carduri-jucate" draggable="true">carduri jucate</div>
+      </div>
+    </div>
+    <div class="col-2">games</div>
+    <div class="col-3">
+      <div class="post-main">
+        <strong>POST</strong>
+        <br>
+        <textarea id="w3review" name="w3review" rows="4" cols="50"></textarea>
+        <select name="post" id="post">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </select>
+        <br><br>
+        <input type="submit" value="post">
+      </div>
+
+
+
+      <div class="get-main">
+        <h1>GET</h1>
+        <br>
+        <div class="get-row">
+
+          <select name="get" id="get">
+            <option value="/v1/api/adm/artifact/getAll">GetAllArtifacts</option>
+            <option value="/v1/api/adm/artifact/get/{id}">GetArtifact</option>
+            <option value="/v1/api/adm/language/get/{id}">GetLanguage</option>
+            <option value="/v1/api/adm/language/getAll">GetAllLanguages</option>
+          </select>
+          <input type="name">
+        </div>
+
+        <!-- <input type="submit" value="GET"> -->
+        <button type="button" onclick="doGet()">GET</button>
+        <br><br>
+        <textarea id="text_area" name="text_area" rows="4" cols="50"></textarea>
+      </div>
+      <br><br>
+
+    </div>
+    <script src="js/script.js"></script>
+    <script src="js/main.js"></script>
+
+
+</body>
+
+</html>
