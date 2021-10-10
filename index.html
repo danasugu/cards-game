@@ -5,43 +5,38 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Grenze&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/cardstarter.css">
+  <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/style.css">
   <title>Card Games</title>
 </head>
 
 <body>
   <div class="base">
-    <h2>Base_url</h2>
+    <!-- <h4>Base_url</h4> -->
     <select name="base_url" id="base_url">
       <option value="http://eusurvey-dev.escoaladevalori.ro:6060">http://eusurvey-dev.escoaladevalori.ro:6060 </option>
     </select>
   </div>
-  <div class="main">
 
+  <div class="container">
     <div class="col-1">
-      <div class="container house-table">
-        <div class=category">abilitati
-          <div class="draggable" draggable="true"></div>
-        </div>
-        <div class="category" draggable="true">pasiuni
-          <div class="draggable" draggable="true"></div>
-        </div>
-        <div class="category" draggable="true">profesii
-          <div class="draggable" draggable="true"></div>
-        </div>
-        <div class="category" draggable="true">provocare
-          <div class="draggable" draggable="true"></div>
-        </div>
-      </div>
-      <div class=" player-table">
-        <div class="container portofoliu-personal" draggable="true">portofoliu-personal</div>
-        <div class="container carduri-active" draggable="true">carduri-active</div>
-        <div class="container carduri-provocate" draggable="true">carduri-provocate</div>
-        <div class="container carduri-jucate" draggable="true">carduri jucate</div>
-      </div>
+      col1
+      <!-- <section id="game-board">
+        <section id="topRow">
+          <div id="pile" class="card outline"></div>
+          <div id="draw" class="card outline"></div>
+        </section>
+        <section id="bottomRow">
+          <div id="stack1" class="card outline"></div>
+        </section>
+      </section> -->
     </div>
     <div class="col-2">games</div>
+
     <div class="col-3">
+
       Site:
       <select name="Base URL" id="base_url">
         <option value="http://eusurvey-dev.escoaladevalori.ro:6060" selected>DEV</option>
@@ -51,61 +46,78 @@
 
       <textarea name="text" id="post_area" rows="20" cols="60"></textarea>
       <br>
-      <select name="Post" id="post_dd">
-        <optgroup label="Game Admin">
-          <option value="/v1/api/user/add">AddUser</option>
-          <option value="/v1/api/game/create">CreateGame</option>
-          <option value="/v1/api/game/start">StartGame</option>
-          <option value="/v1/api/table/create">CreateTable</option>
-        </optgroup>
-        <optgroup label="Game Play">
-          <option value="/v1/api/table/card/draw/">PlayCard</option>
-        </optgroup>
-      </select>
-      <button onclick="doPost()">POST Request</button>
-      <br>
+      <div class="post">
+        <select name="Post" id="post_dd">
+          <optgroup label="Game Admin">
+            <option value="/v1/api/user/add">AddUser</option>
+            <option value="/v1/api/game/create">CreateGame</option>
+            <option value="/v1/api/game/start">StartGame</option>
+            <option value="/v1/api/table/create">CreateTable</option>
+          </optgroup>
+          <optgroup label="Game Play">
+            <option value="/v1/api/table/card/draw/">PlayCard</option>
+          </optgroup>
+        </select>
+        <button onclick="doPost()">POST Request</button>
+      </div>
       <br>
 
-      <select name="Get" id="get_dd">
-        <optgroup label="Admin Functions">
-          <option value="/v1/api/adm/artifact/getAll">GetAllArtifacts</option>
-          <option value="/v1/api/adm/artifact/get/{id}">GetArtifact</option>
-          <option value="/v1/api/adm/language/get/{id}">GetLanguage</option>
-          <option value="/v1/api/adm/language/getAll">GetAllLanguages</option>
-          <option value="/v1/api/adm/localization/get/{id}">GetLocalization</option>
-          <option value="/v1/api/adm/localization/get/{lang}/{id}">GetArtifactLangLocalization</option>
-          <option value="/v1/api/adm/localization/getAll">GetAllLocalizations</option>
-          <option value="/v1/api/adm/localization/getAll/{id}">GetAllArtifactLangLocalization</option>
-        </optgroup>
-        <optgroup label="Card Functions">
-          <option value="/v1/api/card/get/{id}">GetCard</option>
-          <option value="/v1/api/card/getAll">GetAllCards</option>
-          <option value="/v1/api/card/getAllIds">GetAllCardsIds</option>
-        </optgroup>
-        <optgroup label="Game Functions">
-          <option value="/v1/api/game/available">GetAvailableGames</option>
-          <option value="/v1/api/game/get/{id}">GetGame</option>
-          <option value="/v1/api/game/getAll">GetAllGames</option>
-          <option value="/v1/api/game/state/getAll">GetGameStates</option>
-        </optgroup>
-        <optgroup label="Play Game">
-          <option value="/v1/api/table/card/draw/{tableId}/{packId}">DrawCard</option>
-        </optgroup>
-        <optgroup label="Table Services">
-          <option value="/v1/api/table/getAll">GetAllTables</option>
-        </optgroup>
-        <optgroup label="Table User Services">
-          <option value="/v1/api/table/user/{userId}/state/{tableId}">GetUserTableState</option>
-        </optgroup>
-      </select>
-      <input type="text" maxlength=32></input>
-      <button onclick="doGet()">GET Request</button>
-      <br>
+
+      <div class="get">
+        <select name="Get" id="get_dd">
+          <optgroup label="Admin Functions">
+            <option value="/v1/api/adm/artifact/getAll">GetAllArtifacts</option>
+            <option value="/v1/api/adm/artifact/get/{id}">GetArtifact</option>
+            <option value="/v1/api/adm/language/get/{id}">GetLanguage</option>
+            <option value="/v1/api/adm/language/getAll">GetAllLanguages</option>
+            <option value="/v1/api/adm/localization/get/{id}">GetLocalization</option>
+            <option value="/v1/api/adm/localization/get/{lang}/{id}">GetArtifactLangLocalization</option>
+            <option value="/v1/api/adm/localization/getAll">GetAllLocalizations</option>
+            <option value="/v1/api/adm/localization/getAll/{id}">GetAllArtifactLangLocalization</option>
+          </optgroup>
+          <optgroup label="Card Functions">
+            <option value="/v1/api/card/get/{id}">GetCard</option>
+            <option value="/v1/api/card/getAll">GetAllCards</option>
+            <option value="/v1/api/card/getAllIds">GetAllCardsIds</option>
+          </optgroup>
+          <optgroup label="Game Functions">
+            <option value="/v1/api/game/available">GetAvailableGames</option>
+            <option value="/v1/api/game/get/{id}">GetGame</option>
+            <option value="/v1/api/game/getAll">GetAllGames</option>
+            <option value="/v1/api/game/state/getAll">GetGameStates</option>
+          </optgroup>
+          <optgroup label="Play Game">
+            <option value="/v1/api/table/card/draw/{tableId}/{packId}">DrawCard</option>
+          </optgroup>
+          <optgroup label="Table Services">
+            <option value="/v1/api/table/getAll">GetAllTables</option>
+          </optgroup>
+          <optgroup label="Table User Services">
+            <option value="/v1/api/table/user/{userId}/state/{tableId}">GetUserTableState</option>
+          </optgroup>
+        </select>
+        <input type="text" maxlength=32></input>
+        <button onclick="doGet()">GET Request</button>
+      </div>
+
+
       <textarea name="text" id="response_area" rows="20" cols="60"></textarea>
       <br>
     </div>
-    <script src="js/main.js"></script>
-    <script src="js/script.js"></script>
+  </div>
+  </div>
+
+
+  <footer>
+    <div id="timer"></div>
+    <!-- <button id="resetButton">New Game</button> -->
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/cards.js"></script>
+  <script src="js/play.js"></script>
+
 </body>
 
 </html>
