@@ -51,13 +51,13 @@ h1 {
   display: flex;
   margin-bottom: 38vh;
 }
-
+/* 
 footer {
   display: flex;
   justify-content: left;
   margin: 1vh 0 auto 0;
   width: 48vw;
-}
+} */
 
 #timer {
   margin-right: auto;
