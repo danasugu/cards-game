@@ -87,3 +87,13 @@ footer {
 #timer {
   text-align: center;
 }
+
+select {
+  background-color: #9c9c9c;
+  font-size: 18px;
+  color: #fff;
+}
+
+textarea {
+  background-color: #ceffce;
+}
