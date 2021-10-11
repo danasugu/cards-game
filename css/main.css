@@ -70,13 +70,13 @@ footer {
 }
 
 button {
-  font-size: 1.6vw;
+  font-size: 1vw;
   background: #629736;
-  width: 10vw;
+  width: 11vw;
   border: solid 1px lightgrey;
   border-radius: 2px;
   color: lightgrey;
-  font-family: 'Grenze', serif;
+  /* font-family: 'Grenze', serif; */
 }
 
 .highlight {
