@@ -17,6 +17,7 @@
   border: 1px #ccc solid;
   padding: 10px;
 } */
+
 .col-1 {
   display: flex;
   flex: 4;
@@ -96,4 +97,8 @@ select {
 
 textarea {
   background-color: #ceffce;
+}
+
+.portfolio{
+  
 }
