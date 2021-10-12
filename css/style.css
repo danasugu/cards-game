@@ -98,7 +98,15 @@ select {
 textarea {
   background-color: #ceffce;
 }
-
-.portfolio{
-  
+#game-board{
+  width: 100%;
+}
+#bottomRow{
+  display: flex;
+}
+#portfolio{
+  flex:2;
+}
+#draw{
+  flex:2;
 }
