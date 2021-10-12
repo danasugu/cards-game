@@ -110,3 +110,9 @@ textarea {
 #draw{
   flex:2;
 }
+#returnRow{
+  display: flex;
+}
+#return{
+  flex:3;
+}
