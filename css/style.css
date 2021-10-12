@@ -22,7 +22,7 @@
   display: flex;
   flex: 4;
   margin-left: 20px;
-justify-content: flex-start;
+  justify-content: flex-start;
 }
 /* .house-table {
   display: flex;
@@ -99,22 +99,24 @@ select {
 textarea {
   background-color: #ceffce;
 }
-#game-board{
+#game-board {
   width: 100%;
 }
-#bottomRow{
+#bottomRow {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1 100%;
+}
+#portfolio {
+  flex-grow: 4; 
+}
+#draw {
+  flex-grow: 3; 
+}
+#returnRow {
   display: flex;
 }
-#portfolio{
-  flex:2;
-}
-#draw{
-  flex:2;
-}
-#returnRow{
-  display: flex;
-
-}
-#return{
-  flex:3;
+#return {
+  /* flex: 4; */
+  flex-grow: 3;
 }
