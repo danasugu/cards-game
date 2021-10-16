@@ -12,7 +12,7 @@
   align-items: flex-start;
 }
 
-/* 
+/*
 .container div {
   border: 1px #ccc solid;
   padding: 10px;
@@ -20,7 +20,7 @@
 
 .col-1 {
   display: flex;
-  flex: 4;
+  flex: 6;
   margin-left: 20px;
   justify-content: flex-start;
 }
@@ -108,10 +108,10 @@ textarea {
   flex: 1 100%;
 }
 #portfolio {
-  flex-grow: 4; 
+  flex-grow: 4;
 }
 #draw {
-  flex-grow: 3; 
+  flex-grow: 3;
 }
 #returnRow {
   display: flex;
