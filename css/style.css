@@ -110,17 +110,17 @@ textarea {
 }
 #portfolio {
   flex-grow: 4;
-  height: 15em;
+  height: 19em;
 }
 #draw {
   flex-grow: 3;
-  height: 15em;
+  height: 19em;
 }
 #returnRow {
   display: flex;
 }
 #challenge {
-  height: 15em;
+  height: 19em;
 }
 #return {
   /* flex: 4; */
