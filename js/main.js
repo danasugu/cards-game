@@ -54,6 +54,8 @@ const boardEls = {
   pile_passion: document.getElementById('pile_passion'),
   pile_challenge: document.getElementById('pile_challenge'),
   draw: document.getElementById('draw'),
+  portfolio: document.getElementById('portfolio'),
+  challenge: document.getElementById('challenge'),
 };
 
 const timerEl = document.getElementById('timer');
@@ -168,14 +170,16 @@ function renderPile(pile) {
   });
 }
 
+let selectedRegion = 'draw';
 function renderDraw() {
-  draw.forEach((card, cIdx) => {
+  draw.slice(draw.length - 1).forEach((card, cIdx) => {
     let cardEl = document.createElement('div');
     cardEl.className = `card ${card.suit}${card.value}`;
-    cardEl.style = `position: absolute; left: -7px; top: ${
-      -7 + cIdx * -0.5
-    }px;`;
-    boardEls.draw.appendChild(cardEl);
+    // cardEl.style = `position: absolute; left: -7px; top: ${
+    //   -7 + cIdx * -0.5
+    // }px;`;
+    // boardEls.draw.appendChild(cardEl);
+    boardEls[selectedRegion].appendChild(cardEl);
   });
 }
 
@@ -413,3 +417,10 @@ function getClickDestination(element) {
     return element.parentNode.id;
   }
 }
+
+// seller js
+const selectMenu = document.querySelector('.region-menu');
+
+selectMenu.addEventListener('change', function (e) {
+  selectedRegion = e.target.value;
+});
