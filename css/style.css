@@ -23,6 +23,7 @@
   flex: 6;
   margin-left: 20px;
   justify-content: flex-start;
+  height: 100%;
 }
 /* .house-table {
   display: flex;
@@ -109,20 +110,35 @@ textarea {
   flex: 1 100%;
 }
 #portfolio {
-  flex-grow: 4;
-  height: 19em;
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 1.5;
+  height: 100%;
+  overflow: auto;
 }
 #draw {
-  flex-grow: 3;
-  height: 19em;
+  flex-grow: 4;
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%;
+  overflow: auto;
+}
+#challenge {
+  flex-grow: 2;
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%;
+  overflow: auto;
 }
 #returnRow {
   display: flex;
 }
-#challenge {
-  height: 19em;
-}
 #return {
-  /* flex: 4; */
-  flex-grow: 3;
+    /* flex: 4; */
+    flex-grow: 3;
+    flex-grow: 4;
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+    overflow: auto;
 }
