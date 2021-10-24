@@ -12,21 +12,21 @@
 
 /*----- constants -----*/
 
-const suits = ["s", "h", "c", "d"];
+const suits = ['s', 'h', 'c', 'd'];
 const values = [
-  "A",
-  "02",
-  "03",
-  "04",
-  "05",
-  "06",
-  "07",
-  "08",
-  "09",
-  "10",
-  "J",
-  "Q",
-  "K",
+  'A',
+  '02',
+  '03',
+  '04',
+  '05',
+  '06',
+  '07',
+  '08',
+  '09',
+  '10',
+  'J',
+  'Q',
+  'K',
 ];
 
 /*----- app's state (variables) -----*/
@@ -49,24 +49,25 @@ let decks = [deck_ability, deck_profession, deck_passion, deck_challenge];
 
 /*----- cached element references -----*/
 const boardEls = {
-  pile_ability: document.getElementById("pile_ability"),
-  pile_profession: document.getElementById("pile_profession"),
-  pile_passion: document.getElementById("pile_passion"),
-  pile_challenge: document.getElementById("pile_challenge"),
-  draw: document.getElementById("draw"),
-  portfolio: document.getElementById("portfolio"),
-  challenge: document.getElementById("challenge"),
+  pile_ability: document.getElementById('pile_ability'),
+  pile_profession: document.getElementById('pile_profession'),
+  pile_passion: document.getElementById('pile_passion'),
+  pile_challenge: document.getElementById('pile_challenge'),
+  draw: document.getElementById('draw'),
+  portfolio: document.getElementById('portfolio'),
+  challenge: document.getElementById('challenge'),
+  return: document.getElementById('return'),
 };
 
-const timerEl = document.getElementById("timer");
+const timerEl = document.getElementById('timer');
 
 // Maps
 //  - suites to pile
 const pileMap = new Map();
-pileMap.set(pile_ability, "s");
-pileMap.set(pile_passion, "h");
-pileMap.set(pile_profession, "c");
-pileMap.set(pile_challenge, "d");
+pileMap.set(pile_ability, 's');
+pileMap.set(pile_passion, 'h');
+pileMap.set(pile_profession, 'c');
+pileMap.set(pile_challenge, 'd');
 
 // - deck to pile
 const deckMap = new Map();
@@ -77,14 +78,14 @@ deckMap.set(deck_challenge, pile_challenge);
 
 // - suite to deck
 const suiteMap = new Map();
-suiteMap.set("s", deck_ability);
-suiteMap.set("h", deck_passion);
-suiteMap.set("c", deck_profession);
-suiteMap.set("d", deck_challenge);
+suiteMap.set('s', deck_ability);
+suiteMap.set('h', deck_passion);
+suiteMap.set('c', deck_profession);
+suiteMap.set('d', deck_challenge);
 
 /*----- event listeners -----*/
 
-document.querySelector("body").addEventListener("click", handleClick);
+document.querySelector('body').addEventListener('click', handleClick);
 
 /*----- functions -----*/
 
@@ -103,6 +104,7 @@ function init() {
   deck_profession = [];
   deck_passion = [];
   deck_challenge = [];
+  deck_return = [];
   // draw
   draw = [];
   //
@@ -148,7 +150,7 @@ function renderPiles() {
 
 function renderPile(pile) {
   pile.forEach((card, cIdx) => {
-    let cardEl = document.createElement("div");
+    let cardEl = document.createElement('div');
     cardEl.className = `card back ${card.suit}${card.value}`;
     cardEl.style = `position: absolute; left: -7px; top: ${
       -7 + cIdx * -0.5
@@ -170,10 +172,10 @@ function renderPile(pile) {
   });
 }
 
-let selectedRegion = "draw";
+let selectedRegion = 'draw';
 function renderDraw() {
   draw.slice(draw.length - 1).forEach((card, cIdx) => {
-    let cardEl = document.createElement("div");
+    let cardEl = document.createElement('div');
     cardEl.className = `card ${card.suit}${card.value}`;
     // cardEl.style = `position: absolute; left: -7px; top: ${
     //   -7 + cIdx * -0.5
@@ -188,16 +190,16 @@ function makeDecks() {
     values.forEach((value) => {
       let card = { value: value, suit: suit };
       switch (suit) {
-        case "s":
+        case 's':
           deck_ability.push(card);
           break;
-        case "h":
+        case 'h':
           deck_passion.push(card);
           break;
-        case "c":
+        case 'c':
           deck_profession.push(card);
           break;
-        case "d":
+        case 'd':
           deck_challenge.push(card);
           break;
       }
@@ -238,26 +240,26 @@ function handleClick(evt) {
   let clickDest = getClickDestination(evt.target);
 
   // start the timer on user's first click
-  if (!counter && clickDest !== "resetButton") {
+  if (!counter && clickDest !== 'resetButton') {
     startTimer();
   }
 
-  if (clickDest === "draw") {
+  if (clickDest === 'draw') {
     handleDrawClick(evt.target);
-  } else if (clickDest === "resetButton") {
+  } else if (clickDest === 'resetButton') {
     init();
   } else
     switch (clickDest) {
-      case "pile_ability":
+      case 'pile_ability':
         handlePileClick(pile_ability);
         break;
-      case "pile_passion":
+      case 'pile_passion':
         handlePileClick(pile_passion);
         break;
-      case "pile_profession":
+      case 'pile_profession':
         handlePileClick(pile_profession);
         break;
-      case "pile_challenge":
+      case 'pile_challenge':
         handlePileClick(pile_challenge);
         break;
     }
@@ -271,8 +273,8 @@ function isTheSameCard(cardEl, cardObj) {
 }
 
 function getCardClassFromEl(cardEl) {
-  let cardClass = cardEl.className.replace("card ", "");
-  cardClass = cardClass.replace(" highlight", "");
+  let cardClass = cardEl.className.replace('card ', '');
+  cardClass = cardClass.replace(' highlight', '');
   return cardClass;
 }
 
@@ -284,7 +286,7 @@ function getCardClassFromObj(cardObj) {
 function getCardObjFromClass(cardClass) {
   let cardObj = {};
   cardObj.suit = cardClass[0];
-  let value = cardClass[1] + (cardClass[2] ? cardClass[2] : "");
+  let value = cardClass[1] + (cardClass[2] ? cardClass[2] : '');
   cardObj.value = value;
   return cardObj;
 }
@@ -295,10 +297,10 @@ function handleDrawClick(element) {
 
   // if there is no highlighted card, and the draw pile isn't an empty stack, select the top card
   if (!clickedCard && !isEmptyStack(element)) {
-    topCardEl.className += " highlight";
+    topCardEl.className += ' highlight';
     clickedCard = topCard;
-    firstStackId = "draw";
-    firstClickDest = "draw";
+    firstStackId = 'draw';
+    firstClickDest = 'draw';
     let cardsToPush = -1;
     while (cardsToPush < 0) {
       cardArr.push(draw.pop());
@@ -324,54 +326,54 @@ function isEmptyStack(element) {
 }
 
 function getCardColor(cardObj) {
-  if (cardObj.suit === "h" || cardObj.suit === "d") {
-    return "red";
-  } else return "black";
+  if (cardObj.suit === 'h' || cardObj.suit === 'd') {
+    return 'red';
+  } else return 'black';
 }
 
 function getCardValue(cardObj) {
   switch (cardObj.value) {
-    case "A":
+    case 'A':
       return 1;
       break;
-    case "02":
+    case '02':
       return 2;
       break;
-    case "03":
+    case '03':
       return 3;
       break;
-    case "04":
+    case '04':
       return 4;
       break;
-    case "05":
+    case '05':
       return 5;
       break;
-    case "06":
+    case '06':
       return 6;
       break;
-    case "07":
+    case '07':
       return 7;
       break;
-    case "08":
+    case '08':
       return 8;
       break;
-    case "09":
+    case '09':
       return 9;
       break;
-    case "10":
+    case '10':
       return 10;
       break;
-    case "J":
+    case 'J':
       return 11;
       break;
-    case "Q":
+    case 'Q':
       return 12;
       break;
-    case "K":
+    case 'K':
       return 13;
       break;
     default:
-      console.log("getCardValue is broken");
+      console.log('getCardValue is broken');
   }
 }
 
@@ -397,16 +399,16 @@ function count() {
   minutes = Math.floor(secondsPlayed / 60) - hours * 60;
   seconds = secondsPlayed - minutes * 60;
 
-  timerEl.textContent = `time - ${hours > 0 ? `${hours}:` : ""}${
+  timerEl.textContent = `time - ${hours > 0 ? `${hours}:` : ''}${
     minutes < 10 && hours > 0 ? `0${minutes}` : minutes
   }:${seconds < 10 ? `0${seconds}` : seconds}`;
 }
 
 function isFaceUpCard(element) {
   return (
-    element.className.includes("card") &&
-    !element.className.includes("back") &&
-    !element.className.includes("outline")
+    element.className.includes('card') &&
+    !element.className.includes('back') &&
+    !element.className.includes('outline')
   );
 }
 
@@ -419,8 +421,8 @@ function getClickDestination(element) {
 }
 
 // seller js
-const selectMenu = document.querySelector(".region-menu");
+const selectMenu = document.querySelector('.region-menu');
 
-selectMenu.addEventListener("change", function (e) {
+selectMenu.addEventListener('change', function (e) {
   selectedRegion = e.target.value;
 });
