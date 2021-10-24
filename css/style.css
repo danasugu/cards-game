@@ -134,11 +134,9 @@ textarea {
   display: flex;
 }
 #return {
-    /* flex: 4; */
-    flex-grow: 3;
-    flex-grow: 4;
-    display: flex;
-    flex-wrap: wrap;
-    height: 100%;
-    overflow: auto;
+  flex-grow: 4;
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%;
+  overflow: auto;
 }
