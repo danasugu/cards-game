@@ -12,21 +12,156 @@
 
 /*----- constants -----*/
 
-const suits = ['s', 'h', 'c', 'd'];
-const values = [
-  'A',
-  '02',
-  '03',
-  '04',
-  '05',
-  '06',
-  '07',
-  '08',
-  '09',
+const lang = 'ro';
+const suits = ['ability', 'passion', 'profession', 'challenge'];
+const values_ability = [
+  '1',
+  '2',
+  '3',
+  '4',
+  '5',
+  '6',
+  '7',
+  '8',
+  '9',
   '10',
-  'J',
-  'Q',
-  'K',
+  '11',
+  '12',
+  '13',
+  '14',
+  '15',
+  '16',
+];
+const values_challenge = [
+  '1',
+  '2',
+  '3',
+  '4',
+  '5',
+  '6',
+  '7',
+  '8',
+  '9',
+  '10',
+  '11',
+  '12',
+  '13',
+  '14',
+  '15',
+  '16',
+  '17',
+  '18',
+  '19',
+  '20',
+  '21',
+  '22',
+  '23',
+  '24',
+  '25',
+  '26',
+  '27',
+  '28',
+  '29',
+  '30',
+  '31',
+  '32',
+];
+const values_passion = [
+  '1',
+  '2',
+  '3',
+  '4',
+  '5',
+  '6',
+  '7',
+  '8',
+  '9',
+  '10',
+  '11',
+  '12',
+  '13',
+  '14',
+  '15',
+  '16',
+  '17',
+  '18',
+  '19',
+  '20',
+  '21',
+  '22',
+  '23',
+  '24',
+  '25',
+  '26',
+  '27',
+  '28',
+  '29',
+  '30',
+  '31',
+  '32',
+];
+
+const values_profession = [
+  '1',
+  '2',
+  '3',
+  '4',
+  '5',
+  '6',
+  '7',
+  '8',
+  '9',
+  '10',
+  '11',
+  '12',
+  '13',
+  '14',
+  '15',
+  '16',
+  '17',
+  '18',
+  '19',
+  '20',
+  '21',
+  '22',
+  '23',
+  '24',
+  '25',
+  '26',
+  '27',
+  '28',
+  '29',
+  '30',
+  '31',
+  '32',
+  '33',
+  '34',
+  '35',
+  '36',
+  '37',
+  '38',
+  '39',
+  '40',
+  '41',
+  '42',
+  '43',
+  '44',
+  '45',
+  '46',
+  '47',
+  '48',
+  '49',
+  '50',
+  '51',
+  '52',
+  '53',
+  '54',
+  '55',
+  '56',
+  '57',
+  '58',
+  '59',
+  '60',
 ];
 
 /*----- app's state (variables) -----*/
@@ -38,14 +173,14 @@ let draw,
   cardArr,
   secondsPlayed,
   counter,
-  boardScore,
-  totalScore,
   drawCycles,
   clickCount;
 let deck_ability, deck_profession, deck_passion, deck_challenge;
 let pile_ability, pile_profession, pile_passion, pile_challenge;
 
 let decks = [deck_ability, deck_profession, deck_passion, deck_challenge];
+
+let drawRegion = 'draw';
 
 /*----- cached element references -----*/
 const boardEls = {
@@ -64,10 +199,10 @@ const timerEl = document.getElementById('timer');
 // Maps
 //  - suites to pile
 const pileMap = new Map();
-pileMap.set(pile_ability, 's');
-pileMap.set(pile_passion, 'h');
-pileMap.set(pile_profession, 'c');
-pileMap.set(pile_challenge, 'd');
+pileMap.set(pile_ability, 'ability');
+pileMap.set(pile_passion, 'passion');
+pileMap.set(pile_profession, 'profession');
+pileMap.set(pile_challenge, 'challenge');
 
 // - deck to pile
 const deckMap = new Map();
@@ -78,14 +213,68 @@ deckMap.set(deck_challenge, pile_challenge);
 
 // - suite to deck
 const suiteMap = new Map();
-suiteMap.set('s', deck_ability);
-suiteMap.set('h', deck_passion);
-suiteMap.set('c', deck_profession);
-suiteMap.set('d', deck_challenge);
+suiteMap.set('ability', deck_ability);
+suiteMap.set('passion', deck_passion);
+suiteMap.set('profession', deck_profession);
+suiteMap.set('challenge', deck_challenge);
 
 /*----- event listeners -----*/
 
 document.querySelector('body').addEventListener('click', handleClick);
+
+boardEls.portfolio.addEventListener(
+  'dragover',
+  function (ev) {
+    ev.preventDefault();
+  },
+  false
+);
+boardEls.portfolio.addEventListener(
+  'drop',
+  function (ev) {
+    ev.preventDefault();
+    boardEls.portfolio.appendChild(
+      document.getElementById(ev.dataTransfer.getData('text'))
+    );
+  },
+  false
+);
+
+boardEls.challenge.addEventListener(
+  'dragover',
+  function (ev) {
+    ev.preventDefault();
+  },
+  false
+);
+boardEls.challenge.addEventListener(
+  'drop',
+  function (ev) {
+    ev.preventDefault();
+    boardEls.challenge.appendChild(
+      document.getElementById(ev.dataTransfer.getData('text'))
+    );
+  },
+  false
+);
+
+boardEls.return.addEventListener(
+  'dragover',
+  function (ev) {
+    ev.preventDefault();
+  },
+  false
+);
+boardEls.return.addEventListener(
+  'drop',
+  function (ev) {
+    ev.preventDefault();
+    boardEls.return.appendChild(
+      document.getElementById(ev.dataTransfer.getData('text'))
+    );
+  },
+  false
+);
 
 /*----- functions -----*/
 
@@ -151,7 +340,7 @@ function renderPiles() {
 function renderPile(pile) {
   pile.forEach((card, cIdx) => {
     let cardEl = document.createElement('div');
-    cardEl.className = `card back ${card.suit}${card.value}`;
+    cardEl.className = `card backs ${lang} ${card.suit}`;
     cardEl.style = `position: absolute; left: -7px; top: ${
       -7 + cIdx * -0.5
     }px;`;
@@ -172,38 +361,45 @@ function renderPile(pile) {
   });
 }
 
-let selectedRegion = 'draw';
 function renderDraw() {
   draw.slice(draw.length - 1).forEach((card, cIdx) => {
     let cardEl = document.createElement('div');
-    cardEl.className = `card ${card.suit}${card.value}`;
-    // cardEl.style = `position: absolute; left: -7px; top: ${
-    //   -7 + cIdx * -0.5
-    // }px;`;
-    // boardEls.draw.appendChild(cardEl);
-    boardEls[selectedRegion].appendChild(cardEl);
+    cardEl.draggable = true;
+    cardEl.className = `card ${card.suit} ${lang}${card.value}`;
+    cardEl.id = `${card.suit}-${lang}-${card.value}`;
+    boardEls[drawRegion].appendChild(cardEl);
+    cardEl.addEventListener('dragstart', drag, false);
   });
 }
 
 function makeDecks() {
   suits.forEach((suit) => {
-    values.forEach((value) => {
-      let card = { value: value, suit: suit };
-      switch (suit) {
-        case 's':
+    switch (suit) {
+      case 'ability':
+        values_ability.forEach((value) => {
+          let card = { value: value, suit: suit };
           deck_ability.push(card);
-          break;
-        case 'h':
+        });
+        break;
+      case 'passion':
+        values_passion.forEach((value) => {
+          let card = { value: value, suit: suit };
           deck_passion.push(card);
-          break;
-        case 'c':
+        });
+        break;
+      case 'profession':
+        values_profession.forEach((value) => {
+          let card = { value: value, suit: suit };
           deck_profession.push(card);
-          break;
-        case 'd':
+        });
+        break;
+      case 'challenge':
+        values_challenge.forEach((value) => {
+          let card = { value: value, suit: suit };
           deck_challenge.push(card);
-          break;
-      }
-    });
+        });
+        break;
+    }
   });
 }
 
@@ -234,6 +430,11 @@ function isDoubleClick() {
     clickCount = 0;
     return true;
   }
+}
+
+function drag(ev) {
+  ev.dataTransfer.setData('Text/plain', ev.target.id);
+  console.log(ev.dataTransfer.getData('text'));
 }
 
 function handleClick(evt) {
@@ -325,58 +526,6 @@ function isEmptyStack(element) {
   return !!element.id;
 }
 
-function getCardColor(cardObj) {
-  if (cardObj.suit === 'h' || cardObj.suit === 'd') {
-    return 'red';
-  } else return 'black';
-}
-
-function getCardValue(cardObj) {
-  switch (cardObj.value) {
-    case 'A':
-      return 1;
-      break;
-    case '02':
-      return 2;
-      break;
-    case '03':
-      return 3;
-      break;
-    case '04':
-      return 4;
-      break;
-    case '05':
-      return 5;
-      break;
-    case '06':
-      return 6;
-      break;
-    case '07':
-      return 7;
-      break;
-    case '08':
-      return 8;
-      break;
-    case '09':
-      return 9;
-      break;
-    case '10':
-      return 10;
-      break;
-    case 'J':
-      return 11;
-      break;
-    case 'Q':
-      return 12;
-      break;
-    case 'K':
-      return 13;
-      break;
-    default:
-      console.log('getCardValue is broken');
-  }
-}
-
 function startTimer() {
   secondsPlayed = 0;
   counter = setInterval(count, 1000);
@@ -424,5 +573,5 @@ function getClickDestination(element) {
 const selectMenu = document.querySelector('.region-menu');
 
 selectMenu.addEventListener('change', function (e) {
-  selectedRegion = e.target.value;
+  drawRegion = e.target.value;
 });

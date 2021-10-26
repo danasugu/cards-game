@@ -33,93 +33,23 @@
         </section>
       </section>
     </div>
-    <div class="col-2">games</div>
-
-    <div class="col-3">
-
+    <div class="col-2">
+      <div id="timer"></div>
       Site:
       <select name="Base URL" id="base_url">
         <option value="https://careerbus-game.escoaladevalori.ro:6060" selected>DEV</option>
       </select>
-
-      <hr>
-      Draw Target:
-      <select name="regionSelect" id="regionSelect" class="region-menu outline">
-        <option value="portfolio" class="regionName">portofoliu</option>
-        <option value="draw" class="regionName" selected>draw</option>
-        <option value="challenge" class="regionName">provocari</option>
-        <option value="return" class="regionName">return</option>
-      </select>
-
       <hr>
 
-      <textarea name="text" id="post_area" rows="20" cols="60"></textarea>
-      <div class="post">
-        <select name="Post" id="post_dd">
-          <optgroup label="Game Admin">
-            <option value="/v1/api/user/add">AddUser</option>
-            <option value="/v1/api/game/create">CreateGame</option>
-            <option value="/v1/api/game/start">StartGame</option>
-            <option value="/v1/api/table/create">CreateTable</option>
-          </optgroup>
-          <optgroup label="Game Play">
-            <option value="/v1/api/table/card/draw/">PlayCard</option>
-          </optgroup>
-        </select>
-        <button onclick="doPost()">POST Request</button>
-      </div>
-      <br>
-
-      <div class="get">
-        <div>
-          <select name="Get" id="get_dd" style="width: 150px;">
-            <optgroup label="Admin Functions">
-              <option value="/v1/api/adm/artifact/getAll">GetAllArtifacts</option>
-              <option value="/v1/api/adm/artifact/get/{id}">GetArtifact</option>
-              <option value="/v1/api/adm/language/get/{id}">GetLanguage</option>
-              <option value="/v1/api/adm/language/getAll">GetAllLanguages</option>
-              <option value="/v1/api/adm/localization/get/{id}">GetLocalization</option>
-              <option value="/v1/api/adm/localization/get/{lang}/{id}">GetArtifactLangLocalization</option>
-              <option value="/v1/api/adm/localization/getAll">GetAllLocalizations</option>
-              <option value="/v1/api/adm/localization/getAll/{id}">GetAllArtifactLangLocalization</option>
-            </optgroup>
-            <optgroup label="Card Functions">
-              <option value="/v1/api/card/get/{id}">GetCard</option>
-              <option value="/v1/api/card/getAll">GetAllCards</option>
-              <option value="/v1/api/card/getAllIds">GetAllCardsIds</option>
-            </optgroup>
-            <optgroup label="Game Functions">
-              <option value="/v1/api/game/available">GetAvailableGames</option>
-              <option value="/v1/api/game/get/{id}">GetGame</option>
-              <option value="/v1/api/game/getAll">GetAllGames</option>
-              <option value="/v1/api/game/state/getAll">GetGameStates</option>
-            </optgroup>
-            <optgroup label="Play Game">
-              <option value="/v1/api/table/card/draw/{tableId}/{packId}">DrawCard</option>
-            </optgroup>
-            <optgroup label="Table Services">
-              <option value="/v1/api/table/getAll">GetAllTables</option>
-            </optgroup>
-            <optgroup label="Table User Services">
-              <option value="/v1/api/table/user/{userId}/state/{tableId}">GetUserTableState</option>
-            </optgroup>
-          </select>
-        </div>
-        <input type="text" maxlength=20></input>
-        <button onclick="doGet()">GET Request</button>
-      </div>
-
-
-      <textarea name="text" id="response_area" rows="20" cols="60"></textarea>
-      <br>
+      <hr>
     </div>
   </div>
   </div>
 
 
   <footer>
-    <div id="timer"></div>
     <!-- <button id="resetButton">New Game</button> -->
+    Copyright © 2021 Scoala de Valori. All rights reserved.
   </footer>
 
   <script src="js/main.js"></script>
