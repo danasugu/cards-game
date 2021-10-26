@@ -379,7 +379,7 @@ function getCardValue(cardObj) {
 
 function startTimer() {
   secondsPlayed = 0;
-  counter = setInterval(count, 1001);
+  counter = setInterval(count, 1000);
 }
 
 function stopTimer() {
