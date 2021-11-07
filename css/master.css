@@ -104,7 +104,7 @@ body {
   background-color: #abddab;
   height: 50px;
   text-transform: uppercase;
-  padding: 10px;
+  /* padding: 10px; */
 }
 
 .action {
