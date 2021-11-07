@@ -8,7 +8,6 @@
 body {
   background-color: gainsboro;
 }
-
 .container {
   display: flex;
   gap: 25px;
@@ -28,14 +27,15 @@ body {
   /* text-align: center; */
   font-size: 1.3rem;
   text-transform: uppercase;
-  padding-bottom: 50px;
+  padding-bottom: 69px;
 }
 .far {
-  color: green;
+  color: blue;
+  font-size: 19px;
 }
 .user-left {
   text-align: left;
-  font-family: 21px;
+  font-family: 31px;
 }
 .right-container {
   align-content: stretch;
@@ -53,7 +53,9 @@ body {
 .u {
   border: 1px solid goldenrod;
   display: flex;
-  justify-content: stretch;
+  align-self: stretch;
+  justify-self: stretch;
+margin: auto;
 }
 .right-user * {
   width: 100%;
@@ -72,33 +74,35 @@ body {
   width: 100%;
 }
 .po {
-  width: 50px;
-  height: 110px;
+  width: 130px;
+  height: 210px;
   border: 1px solid goldenrod;
-  background-color: red;
+  background-color: #a1f3a1;
   font-size: 21px;
   /* background-color: violet; */
 }
 .dr {
-  width: 50px;
-  height: 110px;
+  width: 130px;
+  height:210px;
   border: 1px solid goldenrod;
-  background-color: red;
+  background-color: #a1f3a1;
   font-size: 21px;
   /* background-color: violet; */
 }
 .ch {
-  width: 50px;
-  height: 110px;
+  width: 130px;
+  height: 210px;
   border: 1px solid goldenrod;
-  background-color: red;
+  background-color: #a1f3a1;
   font-size: 21px;
   /* background-color: violet; */
 }
 
 .ret {
   flex: 3;
-  background-color: red;
+  background-color: #a1f3a1;
+  height: 50px;
+
 }
 
 .action {
