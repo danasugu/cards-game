@@ -34,8 +34,7 @@ body {
   color: green;
 }
 .user-left {
-
-  text-align: center;
+  text-align: left;
   font-family: 21px;
 }
 .right-container {
@@ -53,6 +52,8 @@ body {
 }
 .u {
   border: 1px solid goldenrod;
+  display: flex;
+  justify-content: stretch;
 }
 .right-user * {
   width: 100%;
