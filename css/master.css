@@ -30,9 +30,13 @@ body {
   text-transform: uppercase;
   padding-bottom: 50px;
 }
-.left-users {
-  text-align: left;
-  font-family: 19px;
+.far {
+  color: green;
+}
+.user-left {
+
+  text-align: center;
+  font-family: 21px;
 }
 .right-container {
   align-content: stretch;
@@ -47,22 +51,24 @@ body {
 .right-user {
   display: flex;
 }
-.u1 {
+.u {
   border: 1px solid goldenrod;
 }
 .right-user * {
-  flex-basis: 100%;
+  width: 100%;
+  flex: 1;
+  margin: auto;
+  flex-grow: 6;
 }
 .users-right-container {
+  /* flex-basis: 100%; */
   display: flex;
   background-color: greenyellow;
 }
 .user-1 {
   display: flex;
-  justify-content: space-between;
-  flex: 1;
-  margin: auto;
-  /* flex-basis: 100%; */
+  justify-content: stretch;
+  width: 100%;
 }
 .po {
   width: 50px;
@@ -100,7 +106,7 @@ body {
   justify-content: end;
 }
 
-.select{
+.select {
   width: 150px;
   height: 35px;
 }
