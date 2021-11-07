@@ -1,0 +1,17 @@
+body {
+  background-color: gainsboro;
+}
+
+.container {
+  display: flex;
+  gap: 5px;
+}
+.left-users {
+  border: 1px solid red;
+  width: 15%;
+  height: 50px;
+}
+.right-users {
+  border: 1px solid red;
+  width: 85%;
+}
