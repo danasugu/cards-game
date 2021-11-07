@@ -55,7 +55,7 @@ body {
   display: flex;
   align-self: stretch;
   justify-self: stretch;
-margin: auto;
+  margin: auto;
 }
 .right-user * {
   width: 100%;
@@ -83,7 +83,7 @@ margin: auto;
 }
 .dr {
   width: 130px;
-  height:210px;
+  height: 210px;
   border: 1px solid goldenrod;
   background-color: #a1f3a1;
   font-size: 21px;
@@ -100,9 +100,10 @@ margin: auto;
 
 .ret {
   flex: 3;
-  background-color: #a1f3a1;
+  background-color: #abddab;
   height: 50px;
-
+  text-transform: uppercase;
+padding: 10px;
 }
 
 .action {
