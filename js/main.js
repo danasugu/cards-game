@@ -570,6 +570,7 @@ function getClickDestination(element) {
 }
 
 // seller js
+
 const selectMenu = document.querySelector('.region-menu');
 
 selectMenu.addEventListener('change', function (e) {
