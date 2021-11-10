@@ -120,3 +120,7 @@ body {
 .btn {
   padding: 10px 30px;
 }
+.btn-action {
+  padding: 10px 30px;
+  background-color: #a1f3a1;
+}
