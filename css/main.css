@@ -49,14 +49,13 @@ h1 {
 
 #bottomRow {
   display: flex;
-  margin-bottom: 0vh;
 }
 
 footer {
   display: flex;
   justify-content: left;
   margin: 0vh 0 auto 0;
-  width: 33vw;
+  width: 48vw;
 }
 
 #timer {
