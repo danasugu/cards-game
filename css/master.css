@@ -124,7 +124,9 @@ body {
   text-transform: uppercase;
   /* padding: 10px; */
 }
-
+.dock {
+  height: 200px;
+}
 .action {
   display: flex;
   align-items: center;
