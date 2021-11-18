@@ -10,6 +10,8 @@ body {
 }
 .container {
   display: flex;
+  justify-content: space-between;
+  /* flex-grow: 1; */
   gap: 25px;
 }
 .centered {
@@ -39,15 +41,31 @@ body {
   font-family: 31px;
 }
 .right-container {
+  flex-wrap: wrap;
+  /* justify-content: center;
+  align-content: center;
   align-content: stretch;
-  align-items: stretch;
-  display: flex;
+  align-items: stretch; */
   border: 1px solid goldenrod;
   width: 100%;
-  /* background-color: violet; */
-  justify-content: space-between;
+  background-color: violet;
+  /* justify-content: space-between; */
 }
 
+.r1 {
+  display: flex;
+  flex-grow: 1;
+  flex-basis: calc(100% / 3);
+}
+.r2 {
+  display: flex;
+flex-grow: 1;
+  flex-basis: calc(100% / 3);
+}
+.break {
+  flex-basis: 100%;
+  flex-wrap: wrap;
+}
 .right-user {
   display: flex;
 }
